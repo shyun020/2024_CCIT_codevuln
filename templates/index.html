@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeVuln</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header class="w-screen h-14 bg-white flex justify-between items-center shadow shadow-md">
+        <a href="/" class="flex flex-row items-center mx-8">
+            <img src="{{ url_for('static', filename='codevuln.png') }}" class="w-8 min-w-8" />
+            <!-- Uncomment the next line if you want to show the logo name next to the image -->
+            <!-- <p class="font-bold text-3xl">CodeVuln</p> -->
+        </a>
+        <div class="flex flex-row items-center mx-8 space-x-8">
+            <a href="/result" class="font-bold text2xl hover:text-blue-500">Result</a>
+            <a href="/dashboard" class="font-bold text2xl hover:text-blue-500">Dashboard</a>
+            <a href="/setting" class="font-bold text2xl hover:text-blue-500">Setting</a>
+        </div>
+    </header>
+
+    <div class="w-screen h-2/6 flex justify-center items-center pt-20">
+        <img src="{{ url_for('static', filename='codevuln.png') }}" class="w-20" />
+        <p class="text-5xl font-extrabold">CodeVuln</p>
+    </div>
+
+    <div class="flex justify-center mt-4">
+        <form method="post" action="/process_url">
+            <label for="url" class="mt-5 font-bold pl-4">Repository URL</label>
+            <div class="flex flex-col space-x-4 space-y-4">
+                <div class="relative mt-2">
+                    <input
+                        class="font-medium border-2 border-blue-600 w-11/12 h-10 rounded-full outline-0 bg-gray-100 px-5"
+                        type="text"
+                        id="url"
+                        name="repository_url"
+                        placeholder="Enter Repository URL here."
+                        required
+                    />
+                    <button
+                        type="submit"
+                        class="absolute right-0 mr-[-2.5rem] top-0 bg-blue-600 hover:bg-blue-800 font-bold text-gray-100 px-4 py-2 rounded-full hover:shadow hover:shadow-black"
+                    >
+                        <!-- Icon for Submit -->
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-6 w-6"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                            />
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="mt-4">
+                    <label for="language" class="mt-5 font-bold">Select Language</label>
+                    <div class="flex flex-row flex-wrap">
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="c"/>
+                            <span class="ml-2 font-medium">C</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="cpp"/>
+                            <span class="ml-2 font-medium">C++</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="csharp"/>
+                            <span class="ml-2 font-medium">C#</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="go"/>
+                            <span class="ml-2 font-medium">Go</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="java"/>
+                            <span class="ml-2 font-medium">Java</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="javascript"/>
+                            <span class="ml-2 font-medium">JavaScript</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="python"/>
+                            <span class="ml-2 font-medium">Python</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="ruby"/>
+                            <span class="ml-2 font-medium">Ruby</span>
+                        </label>
+                        <label class="inline-flex items-center mr-4">
+                            <input type="radio" class="form-radio text-blue-600" name="language" value="swift"/>
+                            <span class="ml-2 font-medium">Swift</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
